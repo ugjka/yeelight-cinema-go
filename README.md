@@ -1,5 +1,7 @@
 # yeelight-cinema-go
 
+change your yeelight color to the dominant color of your screen
+
 ## usage
 
 ```bash
