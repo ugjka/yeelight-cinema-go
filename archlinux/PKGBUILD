@@ -2,7 +2,7 @@
 
 _pkgname=yeelight-cinema-go
 pkgname="$_pkgname-git"
-pkgver=20180303.fb4bcb2
+pkgver=20180417.0acaa82
 pkgrel=1
 pkgdesc='Stream mp3 from stdin'
 arch=('x86_64')
