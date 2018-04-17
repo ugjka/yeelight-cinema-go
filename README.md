@@ -15,3 +15,5 @@ set -head to the monitor you want to connect. 0 is the default monitor
 I haven't tested this code because I wrote it for someone else, I don't have a yeelight device
 
 Issues and Pull requests are welcome
+
+ps. this is linux only
