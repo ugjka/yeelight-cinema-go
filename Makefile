@@ -14,4 +14,4 @@ uninstall:
 
 clean:
 	rm -rf $(GOPATH)
-rm $(appname)
+	rm $(appname)
