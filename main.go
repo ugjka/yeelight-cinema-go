@@ -76,16 +76,19 @@ func main() {
 		img := &image.RGBA{data, 4 * int(head.Width), image.Rect(0, 0, int(head.Width), int(head.Height))}
 		items, err := prominentcolor.Kmeans(img)
 		if err != nil {
-			panic(err)
+			items, err = prominentcolor.KmeansWithAll(prominentcolor.DefaultK, img, prominentcolor.ArgumentDefault, prominentcolor.DefaultSize, nil)
+			if err != nil {
+				panic(err)
+			}
 		}
 		col, _ := colorful.Hex(fmt.Sprintf("#%s", items[0].AsString()))
 		h, s, v := col.Hsv()
 		changeDur := time.Now().Sub(now).Nanoseconds() / 1000000
 		//Minimum change duration is 30ms for yeelight
-		if changeDur < 30 {
+		if changeDur < 50 {
 			yee.SetBright(strconv.FormatFloat(v*100, 'f', 1, 64), "smooth", "30")
 			yee.SetHSV(strconv.FormatFloat(h, 'f', 1, 64), strconv.FormatFloat(s*100, 'f', 1, 64), "smooth", "30")
-			time.Sleep(30 - time.Duration(changeDur)*time.Millisecond + 5)
+			time.Sleep(50 - time.Duration(changeDur)*time.Millisecond + 5)
 		} else {
 			yee.SetBright(strconv.FormatFloat(v*100, 'f', 1, 64), "smooth", fmt.Sprintf("%d", changeDur))
 			yee.SetHSV(strconv.FormatFloat(h, 'f', 1, 64), strconv.FormatFloat(s*100, 'f', 1, 64), "smooth", fmt.Sprintf("%d", changeDur))
