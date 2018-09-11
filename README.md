@@ -17,5 +17,3 @@ I haven't tested this code because I wrote it for someone else, I don't have a y
 Issues and Pull requests are welcome
 
 ps. this is linux, xorg only (no wayland)
-
-:)
